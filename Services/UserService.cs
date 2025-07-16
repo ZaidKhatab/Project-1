@@ -98,12 +98,18 @@ namespace Services
 
         private bool IsValidUser(AddUserRequestDto request)
         {
-            if (string.IsNullOrWhiteSpace(request.UserName) ||
+            var isExists = _users.Any(q => q.EmailAddress == request.EmailAddress);
+            if (isExists)
+            {
+                return false;
+            }
+            else if (string.IsNullOrWhiteSpace(request.UserName) ||
                 string.IsNullOrWhiteSpace(request.Password) ||
                 string.IsNullOrWhiteSpace(request.EmailAddress))
+            {
                 return false;
-            else
-                return true;
+            }
+            return true;
         }
     }
 }

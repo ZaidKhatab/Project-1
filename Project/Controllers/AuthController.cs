@@ -56,6 +56,13 @@ namespace Project.Controllers
 
                 var addUserResponse = _userService.CreateUser(dto);
 
+                if(addUserResponse.Status == OpStatus.AlreadyExist)
+                {
+                    response.Status = OpStatus.Warning;
+                    response.Message = "Email Address or Username already exists.";
+                    return View("Auth", response);
+                }
+
                 response.Status = OpStatus.Success;
                 response.Message = "User registered successfully.";
             }

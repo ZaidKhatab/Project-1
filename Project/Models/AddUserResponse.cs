@@ -1,11 +1,9 @@
 ﻿using Domains.Enums;
-using System.Reflection.Metadata.Ecma335;
 
-namespace Project.Models
+namespace Project.Models;
+
+public class AddUserResponse
 {
-    public class AddUserResponse
-    {
-        public OpStatus Status { get; set; }
-        public string Message { get; set; }
-    }
+    public OpStatus Status { get; set; }
+    public string Message { get; set; }
 }

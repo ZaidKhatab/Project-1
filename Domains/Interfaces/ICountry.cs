@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domains.Interfaces;
 
-namespace Domains.Interfaces
+public interface ICountry
 {
-    public interface ICountry
-    {
-        List<string> GetAllCountries();
-    }
+    List<string> GetAllCountries();
 }

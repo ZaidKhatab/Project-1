@@ -1,4 +1,5 @@
 using Domains.Interfaces;
+using Serilog;
 using Services;
 
 namespace Project
@@ -16,6 +17,12 @@ namespace Project
 
             builder.Services.AddSingleton<ICountry, CountryService>();
             
+            Log.Logger = new LoggerConfiguration()
+                .ReadFrom.Configuration(builder.Configuration)
+                .Enrich.FromLogContext()
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
 
             var app = builder.Build();
 

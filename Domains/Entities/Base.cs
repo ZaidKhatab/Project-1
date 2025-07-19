@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domains.Entities;
 
-namespace Domains.Entities
+public class Base<T>
 {
-    public class Base<T>
-    {
-        public T Id { get; set; }
-        
-    }
+    public T Id { get; set; }
+
 }
